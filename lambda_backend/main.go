@@ -2,7 +2,7 @@ package main
 
 import (
 	"backend/apihandler"
-	"backend/config"
+	"backend/models"
 	"context"
 
 	"github.com/aws/aws-lambda-go/lambda"
@@ -13,10 +13,8 @@ func main() {
 }
 
 //BackendHandler -> lambda handler
-func BackendHandler(ctx context.Context) ([]string, error) {
-	var configs config.Conf
-	configs.ReadConf()
+func BackendHandler(ctx context.Context) (models.FinalData, error) {
 
-	finalList := apihandler.APIHandler(configs)
+	finalList := apihandler.APIHandler()
 	return finalList, nil
 }
