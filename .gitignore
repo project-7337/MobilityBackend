@@ -13,3 +13,7 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+/lambda_backend/go.sum
+/lambda_backend/main.zip
+/lambda_backend/main
