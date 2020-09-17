@@ -1,0 +1,26 @@
+{
+    "format": "json",
+    "async": false,
+    "defaultLvl": "INFO",
+    "includeFunction":true,
+    "includeLineNum": true,
+    "pkgConfigs": [
+      {
+        "pkgName": "main",
+        "level":"TRACE"
+      },
+      {
+          "pkgName": "handler",
+          "level": "DEBUG"
+      }
+    ],
+    "writers": [
+      {
+        "name": "defaultFile",
+        "file": {
+          "defaultPath": "/tmp/default.log",
+          "debugPath": "/tmp/debug.log"
+        }
+      }
+    ]
+  }
