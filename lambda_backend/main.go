@@ -4,11 +4,14 @@ import (
 	"backend/apihandler"
 	"bytes"
 	"encoding/json"
-	"fmt"
+
+	"github.com/appmanch/go-commons/logging"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
+
+var logger = logging.GetLogger()
 
 // Response ->
 type Response events.APIGatewayProxyResponse
@@ -21,12 +24,13 @@ func main() {
 func BackendHandler(request events.APIGatewayProxyRequest) (Response, error) {
 	param1, found := request.QueryStringParameters["country"]
 	if !found {
-		fmt.Println("No QP Available")
+		logger.ErrorF("No QP Available")
 	}
 	finalList := apihandler.APIHandler(param1)
 	var buf bytes.Buffer
 	body, err := json.Marshal(finalList)
 	if err != nil {
+		logger.ErrorF("Error while Unmarshaling finaldata")
 		return Response{StatusCode: 404}, err
 	}
 	json.HTMLEscape(&buf, body)

@@ -1,4 +1,7 @@
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
+github.com/appmanch/go-commons v0.0.0-20200917073732-87095ee1bb41 h1:fiMCrGcEP0I8qEvwpfuLGb3lSVaHdaphNluaKMQ2hbs=
+github.com/appmanch/go-commons v0.0.0-20200917073732-87095ee1bb41/go.mod h1:4eF6pB2+sSkwLIrbgHyEOBbXLbrdn5ZxWuj6vuW8nfc=
+github.com/appmanch/go-commons v0.0.0-20200917105440-f2379852ac94 h1:ub8HDFu8qLDrrBABYrmbXSywR40gPXw9WnQgflrtPxM=
 github.com/aws/aws-lambda-go v1.19.1 h1:5iUHbIZ2sG6Yq/J1IN3sWm3+vAB1CWwhI21NffLNuNI=
 github.com/aws/aws-lambda-go v1.19.1/go.mod h1:jJmlefzPfGnckuHdXX7/80O3BvUUi12XOkbv4w9SGLU=
 github.com/cpuguy83/go-md2man/v2 v2.0.0-20190314233015-f79a8a8ca69d/go.mod h1:maD7wRr/U5Z6m/iR4s+kqSMx2CaBsrgA7czyZG/E6dU=

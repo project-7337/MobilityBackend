@@ -4,12 +4,14 @@ import (
 	"backend/models"
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"strings"
+
+	"github.com/appmanch/go-commons/logging"
 )
+
+var logger = logging.GetLogger()
 
 var finalData models.FinalData
 
@@ -31,8 +33,8 @@ func fetchSubRegion(country string) models.SubregionData {
 	if subregionResponse.StatusCode == 200 {
 		data, _ := ioutil.ReadAll(subregionResponse.Body)
 		if err := json.Unmarshal(data, &subregionData); err != nil {
-			fmt.Println(bytes.NewBuffer(data).String())
-			log.Fatalf("FetchSubRegion Unmarshal Error for %s\n Err: %s\n", url, err)
+			logger.InfoF(bytes.NewBuffer(data).String())
+			logger.ErrorF("FetchSubRegion Unmarshal Error for %s\n Err: %s\n", url, err)
 		}
 	}
 	return subregionData
@@ -41,14 +43,14 @@ func fetchSubRegion(country string) models.SubregionData {
 func makeRestCall(uri string) *http.Response {
 	req, err := http.NewRequest("GET", uri, nil)
 	if err != nil {
-		log.Fatalf("MakeRestCall Error for %s\n Err: %s\n", uri, err)
+		logger.ErrorF("MakeRestCall Error for %s\n Err: %s\n", uri, err)
 	}
 	req.Header.Set("accept", "application/json")
 	req.Header.Set("content-type", "application/json")
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Printf("Failed HTTP Request %s\n", err)
+		logger.ErrorF("Failed HTTP Request %s\n", err)
 	}
 	return resp
 }

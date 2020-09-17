@@ -6,9 +6,13 @@ import (
 	"encoding/json"
 	"funcCountry/handler"
 
+	"github.com/appmanch/go-commons/logging"
+
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
+
+var logger = logging.GetLogger()
 
 // Response ->
 type Response events.APIGatewayProxyResponse
@@ -24,6 +28,7 @@ func CountryHandler(ctx context.Context) (Response, error) {
 	var buf bytes.Buffer
 	body, err := json.Marshal(finalList)
 	if err != nil {
+		logger.ErrorF("Error During Unmarshaling Final Response")
 		return Response{StatusCode: 404}, err
 	}
 	json.HTMLEscape(&buf, body)
