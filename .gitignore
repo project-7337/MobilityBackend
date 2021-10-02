@@ -14,10 +14,8 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-<<<<<<< HEAD
 /lambda_backend/go.sum
-/lambda_backend/main.zip
 /lambda_backend/main
-=======
-/lambda_backend/go.sum
->>>>>>> ef9d6e731fa2873fc4ca2a58925187e0c37db540
+/lambda_backend/main.zip
+
+.idea
