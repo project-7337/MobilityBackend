@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/appmanch/go-commons/logging"
+	"go.appmanch.org/commons/logging"
 )
 
 var logger = logging.GetLogger()

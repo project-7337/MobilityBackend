@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/appmanch/go-commons/logging"
+	"go.appmanch.org/commons/logging"
 )
 
 var logger = logging.GetLogger()
